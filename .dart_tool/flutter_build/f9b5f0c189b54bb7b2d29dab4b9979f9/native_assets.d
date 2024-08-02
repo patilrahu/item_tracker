@@ -1,0 +1,1 @@
+ /Users/inspeero/Downloads/item_tracker/.dart_tool/flutter_build/f9b5f0c189b54bb7b2d29dab4b9979f9/native_assets.yaml: 
