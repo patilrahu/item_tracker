@@ -18,10 +18,18 @@ class CreateItem extends StatefulWidget {
 class _CreateItemState extends State<CreateItem> {
   TextEditingController itemNameController = TextEditingController();
   TextEditingController itemDescriptionController = TextEditingController();
-
+  GlobalKey _key = GlobalKey();
   @override
   void initState() {
     super.initState();
+  }
+
+  void getWidgetSize() {
+    final RenderBox renderBox =
+        _key.currentContext!.findRenderObject() as RenderBox;
+    final size = renderBox.size;
+    print(size.width);
+    print(size.height);
   }
 
   @override
@@ -45,7 +53,8 @@ class _CreateItemState extends State<CreateItem> {
             )),
         body: SingleChildScrollView(
           child: Column(children: [
-            const SizedBox(
+            SizedBox(
+              key: _key,
               height: 30,
             ),
             Text(
@@ -90,6 +99,7 @@ class _CreateItemState extends State<CreateItem> {
               });
             }),
             buttonWidget(context, 'List Of Item', () {
+              getWidgetSize();
               FocusScope.of(context).unfocus();
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
